@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codificador de Texto Simples</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="logo.png" alt="">
+        </header>
+        <main>
+            <div class="content">
+                <div class="text-area">
+                    <label for="inputText">Digite seu texto...</label>
+                    <textarea id="inputText" rows="10"></textarea>
+                    <div class="info">Apenas letras minúsculas e sem acento.</div>
+                    <div class="buttons">
+                        <button onclick="criptografar()">Criptografar</button>
+                        <button onclick="descriptografar()">Descriptografar</button>
+                    </div>
+                </div>
+                <div class="message-area">
+                    <div id="message-box" class="message-box">
+                        <img id="message-img" src="avatar.png" alt="Nenhuma mensagem encontrada">
+                        <p id="message-title" class="title">Nenhuma mensagem encontrada!!!</p>
+                        <p id="message-text">Digite um texto que você deseja criptografar ou descriptografar.</p>
+                        <button id="copy-button" style="display: none;" onclick="copiarTexto()">Copiar</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

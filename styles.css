@@ -1,0 +1,256 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e5e5e5;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100vw; 
+    height: 90vh;
+    background-color: #e5e5e5;
+}
+
+header {
+    background-color: #e5e5e5;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    font-size: 2em;
+    color: #F97300;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+    width: 100vw;
+    padding: 20px;
+}
+
+.content {
+    display: flex;
+    flex-grow: 1;
+    background-color: #e5e5e5;
+}
+
+.text-area,
+.message-area {
+    flex: 1;
+    padding: 20px;
+}
+
+.text-area label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    color: #F97300;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 2em;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    height: 90%;
+    resize: none;
+    outline: none;
+    box-sizing: border-box;
+    background-color: #e5e5e5;
+}
+
+.info {
+    margin-top: 10px;
+    font-size: 0.8em;
+    color: #666;
+}
+
+.message-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    position: absolute; 
+    top: 52%; 
+    left: 70%; 
+    transform: translate(-50%, -50%); 
+    width: 30%;
+    height: 90%;
+}
+
+.message-box {
+    text-align: center;
+    color: #F97300;
+}
+
+.message-box img {
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+.message-box .title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-start; 
+    margin-top: 20px;
+}
+
+.buttons button, 
+#copy-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #F97300;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px; 
+}
+
+.buttons button:hover, 
+#copy-button:hover {
+    background-color: #002244;
+}
+
+#copy-button {
+    margin-top: 20px;
+    display: none; 
+}
+
+
+@media (max-width: 767px) { 
+    .text-area label {
+        font-size: 1em;
+    }
+    
+    textarea {
+        height: 100px;
+        font-size: 0.8em;
+    }
+    
+    .message-box .title {
+        font-size: 1.2em;
+    }
+    
+    .buttons button, 
+    #copy-button {
+        padding: 8px 16px;
+        font-size: 0.8em;
+    }
+
+    .message-area {
+        top: 60%;
+        left: 50%;
+        width: 80%;
+        height: auto;
+    }
+
+    .message-box img {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) { 
+    .content {
+        flex-direction: row;
+    }
+
+    .text-area,
+    .message-area {
+        flex: 1;
+        padding: 20px;
+    }
+
+    .text-area label {
+        font-size: 1.2em;
+    }
+
+    textarea {
+        height: 150px;
+        font-size: 1em;
+    }
+
+    .message-box .title {
+        font-size: 1.5em;
+    }
+
+    .buttons button, 
+    #copy-button {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+
+    .message-area {
+        top: 60%;
+        left: 50%;
+        width: 60%;
+        height: auto;
+    }
+
+    .message-box img {
+        display: none;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1440px) { 
+    .container {
+        max-width: 1000px;
+        height: 80vh;
+    }
+
+    .content {
+        flex-direction: row;
+    }
+
+    .text-area,
+    .message-area {
+        flex: 1;
+        padding: 20px;
+    }
+
+    .text-area label {
+        font-size: 1.4em;
+    }
+
+    textarea {
+        height: 200px;
+        font-size: 1.2em;
+    }
+
+    .message-box .title {
+        font-size: 1.8em;
+    }
+
+    .buttons button, 
+    #copy-button {
+        padding: 12px 24px;
+        font-size: 1.1em;
+    }
+
+    .message-area {
+        top: 52%;
+        left: 70%;
+        width: 40%;
+        height: 80%;
+    }
+
+    .message-box img {
+        display: block;
+    }
+}
