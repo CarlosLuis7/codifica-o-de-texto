@@ -1,39 +1,46 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Codificador de Texto Simples</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Decodificador</title>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <img src="logo.png" alt="">
+    
+    <main id="corpo">
+        <header id="header">
+            <img src="./assets/logo.png" alt="O logotipo da Alura ao lado o logotipo da One."/>
+            
         </header>
-        <main>
-            <div class="content">
-                <div class="text-area">
-                    <label for="inputText">Digite seu texto...</label>
-                    <textarea id="inputText" rows="10"></textarea>
-                    <div class="info">Apenas letras minúsculas e sem acento.</div>
-                    <div class="buttons">
-                        <button onclick="criptografar()">Criptografar</button>
-                        <button onclick="descriptografar()">Descriptografar</button>
-                    </div>
+        <section id="corpo__entrada">
+            <textarea id="corpo__entrada__texto" name="" placeholder="Digite seu texto..."></textarea>
+            <div id="corpo__entrada__controle">
+                <div id="corpo__entrada__controle__mester">
+                    <img src="./assets/exclamacao_icon.svg" alt="exclamação dentro de circulo."/>
+                    <p id="corpo__entrada__controle__mester__texto">Apenas letras minúsculas e sem acento.</p>
                 </div>
-                <div class="message-area">
-                    <div id="message-box" class="message-box">
-                        <img id="message-img" src="avatar.png" alt="Nenhuma mensagem encontrada">
-                        <p id="message-title" class="title">Nenhuma mensagem encontrada!!!</p>
-                        <p id="message-text">Digite um texto que você deseja criptografar ou descriptografar.</p>
-                        <button id="copy-button" style="display: none;" onclick="copiarTexto()">Copiar</button>
-                    </div>
+                <div id="corpo__entrada__controle__botoes">
+                    <button onclick="criptografar()" id="corpo__entrada__controle__botao__encrypt">Criptografar</button>
+                    <button onclick="descriptografar()" id="corpo__entrada__controle__botao__decrypt">Descriptografar</button>
                 </div>
             </div>
-        </main>
-    </div>
+        </section>
+        <section id="corpo__saida">
+            <div id="corpo__saida__controle">
+                <p id="corpo__saida__controle__resultado" class="hidden"></p>
+                <div id="corpo__saida__sem" class="">
+                    <img src="./assets/avatar.png" id="corpo__saida__sem__imagem" class="" alt="imagem de um ivestigar com um dos joelhos no chão, com uma lupa na mão olhando para frente."/>
+                    <div id="corpo__saida__sem__mensagem" class="">
+                        <p id="corpo__saida__sem__mensagem__encontrada" class="">Nenhuma mensagem encontrada</p>
+                        <p id="corpo__saida__sem__mensagem__texto" class="">Digite um texto que você deseja criptografar ou descriptografar.</p>
+                    </div>
+                </div>
+                <button onclick="copiar()" id="corpo__saida__controle__botao__copiar" class="hidden">Copiar</button>
+            </div>
+        </section>
+    </main>
+    <script src="./app.js" defer></script>
 
-    <script src="app.js"></script>
 </body>
 </html>

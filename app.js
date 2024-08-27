@@ -1,54 +1,76 @@
+// Função para Criptogarfar o texto
 function criptografar() {
-    let inputText = document.getElementById('inputText').value;
-    let messageImg = document.getElementById('message-img');
-    let messageTitle = document.getElementById('message-title');
-    let messageText = document.getElementById('message-text');
-    let copyButton = document.getElementById('copy-button');
+    const textarea = document.querySelector('#corpo__entrada__texto');
+    let texto = textarea.value;
 
-    if (inputText.trim() === "") {
-        // Se o campo estiver vazio, mostrar a imagem(avata.png) e a mensagem padrão
-        messageImg.style.display = 'block';
-        messageTitle.textContent = "Nenhuma mensagem encontrada";
-        messageText.textContent = "Digite um texto que você deseja criptografar ou descriptografar.";
-        copyButton.style.display = 'none';
-    } else {
-        // Mostrar a mensagem criptografada
-        let encryptedText = inputText.split('').map(char => String.fromCharCode(char.charCodeAt(0) + 3)).join('');
-        messageImg.style.display = 'none';
-        messageTitle.textContent = "Mensagem Criptografada";
-        messageText.textContent = encryptedText;
-        copyButton.style.display = 'block';
+    if (!texto.match(/^[a-z\s]*$/) || texto === "") {
+        alert("Apenas letras minúsculas e sem acento são permitidas.");
+        return;
     }
+
+    let textoCriptografado = texto
+        .replace(/e/g, "enter")
+        .replace(/i/g, "imes")
+        .replace(/a/g, "ai")
+        .replace(/o/g, "ober")
+        .replace(/u/g, "ufat");
+
+    mostrarResultado(textoCriptografado);
 }
 
+// Função para Descriptogarfar o texto
 function descriptografar() {
-    let inputText = document.getElementById('inputText').value;
-    let messageImg = document.getElementById('message-img');
-    let messageTitle = document.getElementById('message-title');
-    let messageText = document.getElementById('message-text');
-    let copyButton = document.getElementById('copy-button');
+    const textarea = document.querySelector('#corpo__entrada__texto');
+    let textoCriptografado = textarea.value;
 
-    if (inputText.trim() === "") {
-        // Se o campo estiver vazio, mostrar a imagem(avata.png) e a mensagem padrão
-        messageImg.style.display = 'block';
-        messageTitle.textContent = "Nenhuma mensagem encontrada";
-        messageText.textContent = "Digite um texto que você deseja criptografar ou descriptografar.";
-        copyButton.style.display = 'none';
-    } else {
-        // Mostrar a mensagem descriptografada
-        let decryptedText = inputText.split('').map(char => String.fromCharCode(char.charCodeAt(0) - 3)).join('');
-        messageImg.style.display = 'none';
-        messageTitle.textContent = "Mensagem Descriptografada";
-        messageText.textContent = decryptedText;
-        copyButton.style.display = 'block';
+    if (!textoCriptografado.match(/^[a-z\s]*$/) || textoCriptografado === "") {
+        alert("Apenas letras minúsculas e sem acento são permitidas.");
+        return;
     }
+
+    let textoOriginal = textoCriptografado
+        .replace(/enter/g, "e")
+        .replace(/imes/g, "i")
+        .replace(/ai/g, "a")
+        .replace(/ober/g, "o")
+        .replace(/ufat/g, "u");
+
+    mostrarResultado(textoOriginal);
 }
 
-function copiarTexto() {
-    let messageText = document.getElementById('message-text').textContent;
-    let inputText = document.getElementById('inputText');
+// Função que exibe o resutado tanmto da Criptografia como da Descriptografa
+function mostrarResultado(texto) {
+    document.querySelector('#corpo__saida__sem').classList.add('hidden');
+    document.querySelector('#corpo__saida__sem__imagem').classList.add('hidden');
+    document.querySelector('#corpo__saida__sem__mensagem').classList.add('hidden');
+    document.querySelector('#corpo__saida__sem__mensagem__encontrada').classList.add('hidden');
+    document.querySelector('#corpo__saida__sem__mensagem__texto').classList.add('hidden');
 
-    inputText.value = messageText;
-    inputText.select();
-    document.execCommand("copy");
+    const outputControl = document.querySelector('#corpo__saida__controle');
+    const result = document.querySelector('#corpo__saida__controle__resultado');
+    const copyButton = document.querySelector('#corpo__saida__controle__botao__copiar');
+
+    result.textContent = texto;
+    result.classList.remove('hidden');
+    copyButton.classList.remove('hidden');
+}
+
+// Função do botão coipar
+function copiar() {
+    const result = document.querySelector('#corpo__saida__controle__resultado');
+    navigator.clipboard.writeText(result.textContent).then(() => {
+    
+        document.querySelector('#corpo__entrada__texto').value = '';
+        result.textContent = '';
+        result.classList.add('hidden');
+        document.querySelector('#corpo__saida__controle__botao__copiar').classList.add('hidden');
+
+        document.querySelector('#corpo__saida__sem').classList.remove('hidden');
+        document.querySelector('#corpo__saida__sem__imagem').classList.remove('hidden');
+        document.querySelector('#corpo__saida__sem__mensagem').classList.remove('hidden');
+        document.querySelector('#corpo__saida__sem__mensagem__encontrada').classList.remove('hidden');
+        document.querySelector('#corpo__saida__sem__mensagem__texto').classList.remove('hidden');
+    }, () => {
+        alert("Erro ao copiar o texto");
+    });
 }

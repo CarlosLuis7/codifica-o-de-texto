@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #F3F5FC;
+}
+
+#corpo {
+  height: 100vh;
+  padding: 2.5%;
+  display: flex;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+
+#header {
+  width: 7%;
+}
+
+#corpo__entrada {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 8% 0 2% 0;
+  gap: 8px;
+}
+
+#corpo__entrada__texto {
+  height: 100%;
+  background-color: #F3F5FC;
+  color: #F2780C;
+  font-family: 'Inter', sans-serif;
+  font-size: 2rem;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  resize: none;
+}
+
+#corpo__entrada__texto::placeholder {
+  color: #F2780C;
+}
+
+#corpo__entrada__controle {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+#corpo__entrada__controle__mester {
+  display: flex;
+  gap: 5px;
+}
+
+#corpo__entrada__controle__mester__texto {
+  color: #495057;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+}
+
+#corpo__entrada__controle__botoes {
+  display: flex;
+  justify-content: space-between;
+}
+
+#corpo__entrada__controle__botao__encrypt {
+  width: 48.2%;
+  background-color: #F2780C;
+  color: #F3F5FC;
+}
+
+#corpo__entrada__controle__botao__decrypt {
+  width: 48.2%;
+  background-color: #D8DFE8;
+  color: #F2780C;
+}
+
+#corpo__saida {
+  background-color: #FFFFFF;
+  width: 29%;
+  border-radius: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Sem resultado*/
+
+#corpo__saida__sem {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.corpo__saida__sem__imagem {
+  width: 84%;
+  height: 32%;
+}
+
+#corpo__saida__sem__mensagem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 16px;
+}
+
+#corpo__saida__sem__mensagem__encontrada {
+  color: #343A40;
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+#corpo__saida__sem__mensagem__texto {
+  color: #495057;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+/*Com resultado*/
+
+#corpo__saida__controle {
+  width: 84%;
+  margin: 6.8% 0;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+}
+
+#corpo__saida__controle__resultado {
+  color: #495057;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+}
+
+#corpo__saida__controle__botao__copiar {
+  background-color: #FFFFFF;
+  color: #F2780C;
+}
+
+.hidden {
+  display: none;
+}
+
+
+button {
+  padding: 24px;
+  border-radius: 24px;
+  border: 1px solid #F2780C;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+}
